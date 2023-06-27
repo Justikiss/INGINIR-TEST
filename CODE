@@ -1,0 +1,20 @@
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.button import Label
+from kivy.uix.textinput import TextInput
+class MyApp(App):
+    def summa(self,instance):
+        self.lb.text = str(int(self.tx.text)+int(self.tx2.text))
+    def build(self):
+        bx=BoxLayout()
+        self.tx=TextInput()
+        self.lb=Label()
+        self.tx2=TextInput()
+        b=Button(text='Сложить',on_press=self.summa)
+        bx.add_widget(self.tx)
+        bx.add_widget(self.tx2)
+        bx.add_widget(b)
+        bx.add_widget(self.lb)
+        return bx
+MyApp().run()
